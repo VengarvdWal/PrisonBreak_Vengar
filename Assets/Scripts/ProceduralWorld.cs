@@ -60,6 +60,7 @@ public class ProceduralWorld
     }
     public void Generate()
     {
+        Debug.Log("Generating World");
         for (int x = 0; x < heights.GetLength(dimension: 0); x++)
         {
             for (int z = 0; z < heights.GetLength(dimension: 0); z++)
@@ -102,9 +103,6 @@ public class ProceduralWorld
         ProceduralManager.instance.SetSeed(seed);        
         rocks.Clear();	
         Generate();
-
-
-
 	}
     public void Init()
     {

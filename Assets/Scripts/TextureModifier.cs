@@ -45,20 +45,19 @@ public class TextureModifier : MonoBehaviour
 	private int indexOfDefaultTexture;
 
 
-	public void TextureMapping()
-	{
 
-		
-		terrain = GetComponent<Terrain>();
-
-		
+	public void TextureMapping(Terrain terrain)
+	{	
+		Debug.Log("Recalculating Texture");
+			
 		terrainData = terrain.terrainData;
-				
+			
 		int nbTextures = terrainData.alphamapLayers;
 				
 		float maxHeight = GetMaxHeight(terrainData, terrainData.heightmapResolution);				
 		float[,,] splatmapData = new float[terrainData.alphamapWidth, terrainData.alphamapHeight, terrainData.alphamapLayers];
-				
+		
+		terrainData.SetAlphamaps(0, 0, splatmapData);		
 		for (int i = 0; i < listTextures.Count; i++)
 		{
 			if (listTextures[i].minAltitude > listTextures[i].maxAltitude)

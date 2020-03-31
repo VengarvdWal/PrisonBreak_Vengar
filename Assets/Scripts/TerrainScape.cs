@@ -60,7 +60,9 @@ public class TerrainScape : Landscape
 			worldPosition.y = t.SampleHeight(worldPosition);
 
 			Instantiate(ProceduralManager.instance.world.rockPrefabs[rock.z], worldPosition, Quaternion.identity, this.transform);
+			
 		}
+		TextureModifier.instance.TextureMapping(t);
 	}
 }
 

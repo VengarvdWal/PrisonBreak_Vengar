@@ -322,21 +322,20 @@ MonoBehaviour:
   m_GameObject: {fileID: 1226573067}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6124c985639ae724c959348b7e585a21, type: 3}
+  m_Script: {fileID: 11500000, guid: bd9030b92262c4e4389a1a2ee500e3e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   world:
     rockPrefabs:
-    - {fileID: 1465565938110342, guid: f7510917c44a4c840bc4687b6d531960, type: 3}
-    - {fileID: 1515862425126706, guid: cec935077b7f8ba4ea43285a8bd59b40, type: 3}
-    - {fileID: 1100890239326732, guid: 65194f4f6d2fa7b499d9426fb9ace010, type: 3}
-    - {fileID: 1084410997571076, guid: f5bd45ce36785ee438611c8122304386, type: 3}
-    maxHeight: 0.25
+    - {fileID: 1515862425126706, guid: e40f64c7df06a724cad9ceaf92ba9cc6, type: 3}
+    - {fileID: 1100890239326732, guid: 55a11d5d16933b847aecc6add1e18e0b, type: 3}
+    - {fileID: 1084410997571076, guid: 43cbe227ffb55b647af0214d6f3165b8, type: 3}
+    maxHeight: 0.5
     minHeight: 0
     size: 512
     detail: 2
-    rockProbability: 0.015
-    seed: 12
+    rockProbability: 0.0003
+    seed: 15
     type: 1
     rocks: []
   regenerate:
@@ -367,9 +366,8 @@ GameObject:
   - component: {fileID: 1311148066}
   - component: {fileID: 1311148065}
   - component: {fileID: 1311148064}
-  - component: {fileID: 1311148067}
   - component: {fileID: 1311148068}
-  - component: {fileID: 1311148069}
+  - component: {fileID: 1311148067}
   m_Layer: 0
   m_Name: Terrain
   m_TagString: Untagged
@@ -386,7 +384,7 @@ TerrainCollider:
   m_GameObject: {fileID: 1311148063}
   m_Material: {fileID: 0}
   m_Enabled: 1
-  m_TerrainData: {fileID: 15600000, guid: 370e4b822add0864b942612ba855a82b, type: 2}
+  m_TerrainData: {fileID: 15600000, guid: 8b027e7944f0552478764992cff5d26c, type: 2}
   m_EnableTreeColliders: 1
 --- !u!218 &1311148065
 Terrain:
@@ -397,19 +395,19 @@ Terrain:
   m_GameObject: {fileID: 1311148063}
   m_Enabled: 1
   serializedVersion: 6
-  m_TerrainData: {fileID: 15600000, guid: 370e4b822add0864b942612ba855a82b, type: 2}
+  m_TerrainData: {fileID: 15600000, guid: 8b027e7944f0552478764992cff5d26c, type: 2}
   m_TreeDistance: 5000
   m_TreeBillboardDistance: 50
   m_TreeCrossFadeLength: 5
   m_TreeMaximumFullLODCount: 50
   m_DetailObjectDistance: 80
   m_DetailObjectDensity: 1
-  m_HeightmapPixelError: 5
+  m_HeightmapPixelError: 1
   m_SplatMapDistance: 1000
   m_HeightmapMaximumLOD: 0
   m_ShadowCastingMode: 2
   m_DrawHeightmap: 1
-  m_DrawInstanced: 0
+  m_DrawInstanced: 1
   m_DrawTreesAndFoliage: 1
   m_ReflectionProbeUsage: 1
   m_MaterialTemplate: {fileID: 10652, guid: 0000000000000000f000000000000000, type: 0}
@@ -444,22 +442,25 @@ MonoBehaviour:
   m_GameObject: {fileID: 1311148063}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0c73730089ec6ce46b5de3232618468b, type: 3}
+  m_Script: {fileID: 11500000, guid: b1abdbc538f4b704994d7c65e42ba3cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  listTextures:
+  - name: Grass
+    index: 0
+    defaultTexture: 0
+    minSteepness: 0
+    maxSteepness: 1
+    minAltitude: 0
+    maxAltitude: 1
+  - name: Sand
+    index: 1
+    defaultTexture: 0
+    minSteepness: 0
+    maxSteepness: 1
+    minAltitude: 0
+    maxAltitude: 0.55
 --- !u!114 &1311148068
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1311148063}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 326a54e4b64c10746998023816a22303, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1311148069
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -468,21 +469,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 1311148063}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 36b0d2f17e600bb42862405e822a2a25, type: 3}
+  m_Script: {fileID: 11500000, guid: 65e37f2ec6c473e499d9b4a2a62d960a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  listTextures:
-  - name: Grass
-    index: 0
-    defaultTexture: 0
-    minSteepness: 0
-    maxSteepness: 0.25
-    minAltitude: 0
-    maxAltitude: 1
-  - name: Stone
-    index: 1
-    defaultTexture: 0
-    minSteepness: 0.25
-    maxSteepness: 1
-    minAltitude: 0
-    maxAltitude: 1

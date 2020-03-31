@@ -12,7 +12,7 @@ public abstract class Landscape : MonoBehaviour
     {
         ProceduralManager.instance.regenerate.AddListener(Generate);
         Generate();
-		TextureModifier.instance.TextureMapping();
+		
     }
     public virtual void Generate()
     {
