@@ -67,8 +67,6 @@
     <Compile Include="Assets\Scripts\Access.cs" />
     <Compile Include="Assets\Scripts\AccessItem.cs" />
     <Compile Include="Assets\Scripts\AssignSplatMap.cs" />
-    <Compile Include="Assets\Scripts\Bonus.cs" />
-    <Compile Include="Assets\Scripts\BonusItem.cs" />
     <Compile Include="Assets\Scripts\ButtonHandleOnClick.cs" />
     <Compile Include="Assets\Scripts\CubeScape.cs" />
     <Compile Include="Assets\Scripts\Door.cs" />
@@ -91,6 +89,8 @@
     <Compile Include="Assets\Scripts\PickUp.cs" />
     <Compile Include="Assets\Scripts\ProceduralManager.cs" />
     <Compile Include="Assets\Scripts\ProceduralWorld.cs" />
+    <Compile Include="Assets\Scripts\RaftPart.cs" />
+    <Compile Include="Assets\Scripts\RaftPartItem.cs" />
     <Compile Include="Assets\Scripts\SimpleJson.cs" />
     <Compile Include="Assets\Scripts\SphericalProjection.cs" />
     <Compile Include="Assets\Scripts\TerrainScape.cs" />

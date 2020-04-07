@@ -61,6 +61,33 @@ public class TerrainScape : Landscape
 
 			Instantiate(ProceduralManager.instance.world.rockPrefabs[rock.z], worldPosition, Quaternion.identity, this.transform);
 			
+			
+		}
+
+		for (int p = 0; p < ProceduralManager.instance.world.raftParts.Count; p++)
+		{
+			Vector3Int part = ProceduralManager.instance.world.raftParts[p];
+
+			Vector3 worldPosition = new Vector3(
+				MathUtils.Map(
+					part.x,
+					0,
+					ProceduralManager.instance.world.Size,
+					t.GetPosition().x,
+					t.GetPosition().x + t.terrainData.size.x),
+				0.0f,
+				MathUtils.Map(
+					part.y,
+					0,
+					ProceduralManager.instance.world.Size,
+					t.GetPosition().z,
+					t.GetPosition().z + t.terrainData.size.z)
+				);
+
+			worldPosition.y = t.SampleHeight(worldPosition);
+
+			Instantiate(ProceduralManager.instance.world.raftPrefabs[part.z], worldPosition, Quaternion.identity, this.transform);
+
 		}
 		TextureModifier.instance.TextureMapping(t);
 	}

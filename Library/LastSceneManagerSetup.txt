@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/Scenes/PrisonBreak.unity
+- path: Assets/Scenes/Procudural Generation Test.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0

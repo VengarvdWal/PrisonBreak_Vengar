@@ -14,7 +14,8 @@ public class ProceduralWorld
     };
 
 
-	[SerializeField]
+    [SerializeField]
+    public List<GameObject> raftPrefabs;
 	public List<GameObject> rockPrefabs;
 	[SerializeField]
     private float maxHeight = 1;
@@ -33,6 +34,7 @@ public class ProceduralWorld
     [SerializeField]
     public float[,] heights;
 	public List<Vector3Int> rocks;
+    public List<Vector3Int> raftParts;
     public int Size
     {
         get
@@ -91,6 +93,12 @@ public class ProceduralWorld
 					Vector3Int rock = new Vector3Int(x, z, t);
 					rocks.Add(rock);
 				}
+
+                for (int i = 0; i < raftPrefabs.Count; i++)
+                {
+                    Vector3Int part = new Vector3Int(x, z, i);
+                    raftParts.Add(part);
+                }
                           
             }
         }
