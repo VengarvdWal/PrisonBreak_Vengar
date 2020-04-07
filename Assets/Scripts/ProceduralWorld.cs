@@ -15,7 +15,7 @@ public class ProceduralWorld
 
 
     [SerializeField]
-    public List<GameObject> raftPrefabs;
+    public GameObject[] raftPrefabs = new GameObject[3];
 	public List<GameObject> rockPrefabs;
 	[SerializeField]
     private float maxHeight = 1;
@@ -62,6 +62,8 @@ public class ProceduralWorld
     }
     public void Generate()
     {
+		
+
         Debug.Log("Generating World");
         for (int x = 0; x < heights.GetLength(dimension: 0); x++)
         {
@@ -74,8 +76,6 @@ public class ProceduralWorld
                         height = UnityEngine.Random.Range(minHeight, maxHeight);
                         break;
                     case GenType.PerlinBased:
-						//float perlinx = (x / detail) + proceduralmanager.instance.getperlinseed();
-						//float perliny = (z / detail) + proceduralmanager.instance.getperlinseed();
 						float perlinX = ProceduralManager.instance.GetPerlinSeed() + x / (float)size * detail;
 						float perlinY = ProceduralManager.instance.GetPerlinSeed() + z / (float)size * detail;
 						height = (Mathf.PerlinNoise(perlinX, perlinY) - minHeight) * maxHeight;
@@ -92,24 +92,31 @@ public class ProceduralWorld
 					int t = UnityEngine.Random.Range(0, rockPrefabs.Count);
 					Vector3Int rock = new Vector3Int(x, z, t);
 					rocks.Add(rock);
+										
 				}
 
-                for (int i = 0; i < raftPrefabs.Count; i++)
-                {
-                    Vector3Int part = new Vector3Int(x, z, i);
-                    raftParts.Add(part);
-                }
-                          
-            }
+				
+
+			}
         }
 
-        Debug.Log(message: "world generated");
+		for (int i = 0; i < raftPrefabs.Length; i++)
+		{
+			Vector3Int part = new Vector3Int(x, z, i);
+			raftParts.Add(part);
+		}
+
+
+		Debug.Log(message: "world generated");
     }
+
+	
     public void Regenerate()
     {
         heights = new float[size, size];
         ProceduralManager.instance.SetSeed(seed);        
-        rocks.Clear();	
+        rocks.Clear();
+		raftParts.Clear();
         Generate();
 	}
     public void Init()
