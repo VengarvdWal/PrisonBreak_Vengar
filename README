@@ -1,0 +1,22 @@
+Hi David, 
+
+This is my assignment.
+There are some little bugs, but I just didn't have the time to fix them.
+
+Some things are a little vague, so I will try to explain them. 
+
+-You open the inventory with the "I" key.
+-You can pick up certain item with Left Click if near. (This is a little buggy for some reason, so try to aim a little higher.)
+
+-The second door works, but it only opens when the ISS is close enough to your location. So if you don't want to wait I added a little
+button on the doorframe. Left Clicking it well, load the next scene. 
+
+In the next scene you need to pick up the glowing crystals, there are 3 of them.
+You can check how many you have in your inventory.
+
+Once you have collected all crystal you can now interact with the portal device on the map. 
+(This hitbox is also pretty buggy, but it works eventually.)
+
+
+I hope this clarifies somethings. 
+
