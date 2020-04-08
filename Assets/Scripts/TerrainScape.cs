@@ -86,7 +86,35 @@ public class TerrainScape : Landscape
 
 			worldPosition.y = t.SampleHeight(worldPosition);
 
-			Instantiate(ProceduralManager.instance.world.raftPrefabs[part.z], worldPosition, Quaternion.identity, this.transform);
+			GameObject go = Instantiate(ProceduralManager.instance.world.raftPartPrefabs[part.z], worldPosition, Quaternion.identity, this.transform);
+			go.name = go.name.Replace("(Clone)", "");
+
+		}
+
+		for (int s = 0; s < ProceduralManager.instance.world.raftPosition.Count; s++)
+		{
+			Vector3Int raft = ProceduralManager.instance.world.raftPosition[s];
+
+			Vector3 worldPosition = new Vector3(
+				MathUtils.Map(
+					raft.x,
+					0,
+					ProceduralManager.instance.world.Size,
+					t.GetPosition().x,
+					t.GetPosition().x + t.terrainData.size.x),
+				0.0f,
+				MathUtils.Map(
+					raft.y,
+					0,
+					ProceduralManager.instance.world.Size,
+					t.GetPosition().z,
+					t.GetPosition().z + t.terrainData.size.z)
+				);
+
+			worldPosition.y = t.SampleHeight(worldPosition);
+
+			GameObject go = Instantiate(ProceduralManager.instance.world.raftPrefab[raft.z], worldPosition, Quaternion.identity, this.transform);
+			go.name = go.name.Replace("(Clone)", "");
 
 		}
 		TextureModifier.instance.TextureMapping(t);

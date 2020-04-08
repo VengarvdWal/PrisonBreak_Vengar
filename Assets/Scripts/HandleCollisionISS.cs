@@ -7,7 +7,7 @@ public class HandleCollisionISS : MonoBehaviour
 
 
 
-	private void OnTriggerEnter(Collider other)
+	private void OnTriggerStay(Collider other)
 	{
 		if (other.gameObject.tag == "IPArea")
 		{
@@ -19,6 +19,7 @@ public class HandleCollisionISS : MonoBehaviour
 	{
 		
 		SphericalProjection.instance.NotInRadius();
+		Debug.LogWarning(SphericalProjection.instance.NotInRadius());
 	}
 
 	

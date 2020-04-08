@@ -50,9 +50,4 @@ public class ProceduralManager : MonoBehaviour
 		return perlinSeed;
 	}
 
-	// Update is called once per frame
-	void Update()
-	{
-
-	}
-}
+}	

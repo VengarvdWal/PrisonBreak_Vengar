@@ -6,6 +6,7 @@ using UnityStandardAssets.Characters.FirstPerson;
 public class InteractionScript : MonoBehaviour
 {
     public float raycastRange = 5f;
+	public GameObject issCanvas;
 
     void Update()
     {
@@ -17,7 +18,26 @@ public class InteractionScript : MonoBehaviour
         if(Input.GetButtonDown("OpenInventory"))
         {
             OpenInventory(!InventoryUI.instance.gameObject.activeSelf);
+
+			//if (issCanvas != null)
+			//{
+			//	if (issCanvas.activeSelf)
+			//	{
+			//		issCanvas.SetActive(!issCanvas.activeSelf);
+			//	}
+			//	else
+			//	{
+			//		issCanvas.SetActive(!issCanvas.activeSelf);
+			//	}
+			//}
+			
+			
         }
+
+		if (Input.GetButtonDown("Cancel"))
+		{
+			Application.Quit();
+		}
     }
 
     public void OpenInventory(bool value)
@@ -34,6 +54,7 @@ public class InteractionScript : MonoBehaviour
 		if(!InventoryUI.instance.gameObject.activeSelf)
 		{
 			Ray r = new Ray(Camera.main.transform.position, Camera.main.transform.forward);
+			Debug.DrawRay(Camera.main.transform.position, Camera.main.transform.forward, Color.green);
 			RaycastHit hit;
 
 			int ignoreLayer = ~LayerMask.GetMask("Player");

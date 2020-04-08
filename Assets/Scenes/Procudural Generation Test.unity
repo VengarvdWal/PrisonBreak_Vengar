@@ -248,7 +248,9 @@ MonoBehaviour:
     - {fileID: 2361659772089350035, guid: 85e6125cd4689504986837d59197b2ef, type: 3}
     - {fileID: 2361659772089350035, guid: 85e6125cd4689504986837d59197b2ef, type: 3}
     rockPrefabs:
-    - {fileID: 754147233793419690, guid: d6f097aeb0f2faf4bbba0300502082c9, type: 3}
+    - {fileID: 1515862425126706, guid: cec935077b7f8ba4ea43285a8bd59b40, type: 3}
+    - {fileID: 1100890239326732, guid: 65194f4f6d2fa7b499d9426fb9ace010, type: 3}
+    - {fileID: 1084410997571076, guid: f5bd45ce36785ee438611c8122304386, type: 3}
     maxHeight: 0.2
     minHeight: 0
     size: 512

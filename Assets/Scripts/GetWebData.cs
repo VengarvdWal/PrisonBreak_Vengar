@@ -23,11 +23,11 @@ public abstract class GetWebData : MonoBehaviour
 
 				if (webRequest.isNetworkError)
 				{
-					Debug.Log(pages[page] + "Error: " + webRequest.error);
+					//Debug.Log(pages[page] + "Error: " + webRequest.error);
 				}
 				else
 				{
-					Debug.Log(pages[page] + "Received: " + webRequest.downloadHandler.text);
+					//Debug.Log(pages[page] + "Received: " + webRequest.downloadHandler.text);
 					ParseJSON(webRequest.downloadHandler.text);
 
 				}
@@ -44,7 +44,7 @@ public abstract class GetWebData : MonoBehaviour
 
             if (uwr.isNetworkError || uwr.isHttpError)
             {
-                Debug.Log(uwr.error);
+                //Debug.Log(uwr.error);
             }
             else
             {

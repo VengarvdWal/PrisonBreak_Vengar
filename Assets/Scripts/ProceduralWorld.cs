@@ -15,7 +15,8 @@ public class ProceduralWorld
 
 
     [SerializeField]
-    public GameObject[] raftPrefabs = new GameObject[3];
+    public GameObject[] raftPartPrefabs = new GameObject[3];
+	public GameObject[] raftPrefab = new GameObject[1];
 	public List<GameObject> rockPrefabs;
 	[SerializeField]
     private float maxHeight = 1;
@@ -35,6 +36,7 @@ public class ProceduralWorld
     public float[,] heights;
 	public List<Vector3Int> rocks;
     public List<Vector3Int> raftParts;
+	public List<Vector3Int> raftPosition;
     public int Size
     {
         get
@@ -67,7 +69,7 @@ public class ProceduralWorld
         Debug.Log("Generating World");
         for (int x = 0; x < heights.GetLength(dimension: 0); x++)
         {
-            for (int z = 0; z < heights.GetLength(dimension: 0); z++)
+            for (int z = 0; z < heights.GetLength(dimension: 1); z++)
             {
                 float height = 0;
                 switch (type)
@@ -100,12 +102,22 @@ public class ProceduralWorld
 			}
         }
 
-		for (int i = 0; i < raftPrefabs.Length; i++)
+		for (int i = 0; i < raftPartPrefabs.Length; i++)
 		{
+			int x = UnityEngine.Random.Range(0, heights.GetLength(dimension: 0));
+			int z = UnityEngine.Random.Range(0, heights.GetLength(dimension: 1));
 			Vector3Int part = new Vector3Int(x, z, i);
 			raftParts.Add(part);
 		}
 
+		for (int i = 0; i < raftPrefab.Length; i++)
+		{
+			int x = UnityEngine.Random.Range(0, heights.GetLength(dimension: 0));
+			int z = UnityEngine.Random.Range(0, heights.GetLength(dimension: 1));
+			Vector3Int raft = new Vector3Int(x, z, i);
+			raftPosition.Add(raft);
+
+		}
 
 		Debug.Log(message: "world generated");
     }

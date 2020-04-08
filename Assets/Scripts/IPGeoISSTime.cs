@@ -74,7 +74,7 @@ public class IPGeoISSTime : GetWebData
 					int epocInt = int.Parse(currentJSONObj["response"][i]["risetime"]);					
 					DateTime utcTime = UnixTimeStampToDateTime(epocInt).ToLocalTime();					
 
-					textObjects[i].GetComponent<TextMeshProUGUI>().text = utcTime.ToString("dddd, dd MMMMM yyyy HH:mm");
+					//textObjects[i].GetComponent<TextMeshProUGUI>().text = utcTime.ToString("dddd, dd MMMMM yyyy HH:mm");
  				}
 								
 				apiEnumState = apiCallState.ISS_LOCATION;
@@ -86,7 +86,7 @@ public class IPGeoISSTime : GetWebData
 
 				float fISSLat = (float)currentJSONObj["iss_position"]["latitude"];
 				float fISSLon = (float)currentJSONObj["iss_position"]["longitude"];
-				Debug.Log("ISS Latitude : " + fISSLat + " " + fISSLon);
+				//Debug.Log("ISS Latitude : " + fISSLat + " " + fISSLon);
 				
 				SphericalProjection.instance.CalculateISSPosition(GetFormattedFloatLat(fISSLat), GetFormattedFloatLon(fISSLon));
 				break;

@@ -7,17 +7,18 @@ public class Inventory : MonoBehaviour
 
     public static Inventory instance;
     //Properties
-    private List<Item> items;
+    private List<Item> items;	
     public float maxWeight = 10f;
     private float currentWeight = 0;
+	int partsCollected = 0;
 
 
-    private void Awake()
+	private void Awake()
     {
         if(instance == null)
         {
             instance = this;
-            DontDestroyOnLoad((gameObject));
+            //DontDestroyOnLoad((gameObject));
         }
         else
         {
@@ -28,6 +29,11 @@ public class Inventory : MonoBehaviour
         currentWeight = 0;
     }
 
+	void RaftParts()
+	{
+
+	}
+	
     public bool AddItem(Item i)
     {
         if (currentWeight + i.weight > maxWeight)
@@ -35,9 +41,18 @@ public class Inventory : MonoBehaviour
             return false;
         }
         else
-        {            
-            items.Add(i);			
-            InventoryUI.instance.Add(i);            
+        {
+			
+			items.Add(i);
+			if (i is RaftPartItem)
+			{
+				foreach (RaftPartItem item in items)
+				{
+					int partsCollected = 0;
+				}
+			}			
+					
+			InventoryUI.instance.Add(i);            
             currentWeight += i.weight;
             return true;
         }
@@ -64,6 +79,30 @@ public class Inventory : MonoBehaviour
             }
         }
     } 
+
+	public bool RaftPartsCollected()
+	{
+		
+		for (int i = 0; i < items.Count; i++)
+		{
+
+			if (partsCollected != 3)
+			{
+				if (items[i] is RaftPartItem)
+				{
+					RaftPartItem rp = (RaftPartItem)items[i];
+					partsCollected++;										
+					return false;
+
+
+
+				}
+			}			
+			
+		}		
+		return true;
+		
+	}
 
     public bool Opens(int id)
     {

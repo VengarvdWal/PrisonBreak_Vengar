@@ -6,7 +6,7 @@ public class Door : MonoBehaviour, IInteractable
 {
     public int id;
     public bool open = false;
-    private float initialRotation;
+    public float initialRotation;
     
     // Start is called before the first frame update
     void Start()
@@ -32,10 +32,7 @@ public class Door : MonoBehaviour, IInteractable
         {
             open = !open;
         }
-		else if (SphericalProjection.instance.isInRange)
-		{
-			open = !open;
-		}
+		
     }
 
     public void Action()
